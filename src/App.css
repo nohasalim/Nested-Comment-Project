@@ -10,5 +10,14 @@ body{
     background-color:white;
     color: #111;
     font-family: 'Poppins', sans-serif;
-    
 }
+.App{
+    width: 60%;
+    margin:auto;
+}
+@media screen and (max-width: 1000px) {
+    .App{
+        width: 100%;
+        margin:auto;
+    }
+  }
