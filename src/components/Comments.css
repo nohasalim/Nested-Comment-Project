@@ -1,5 +1,8 @@
 
-.comment-container{
+.comment-wrap{
+    margin-left:10px;
+}
+.comment-wrap .comment-container{
     margin: 20px;
     padding: 10px;
     background-color:white;
@@ -7,13 +10,13 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.comment-container .comment-data{
+.comment-wrap .comment-container .comment-data{
     display: flex;
     align-items: center;
 }
 
 
-.comment-container .comment-data .text-content{
+.comment-wrap .comment-container .comment-data .text-content{
     background-color: #F1F3FD;
     border-radius: 10px;
    font-weight: 500;
@@ -23,11 +26,11 @@
    width: 100%;
 
 }
-.comment-container .user_actions{
+.comment-wrap .comment-container .user_actions{
 margin-left: 75px;   
 }
 
-.comment-container button{
+.comment-wrap .comment-container button{
     background-color:white;
     color: hsl(0, 1%, 48%);
     border:none;
@@ -39,11 +42,11 @@ margin-left: 75px;
     letter-spacing: 2px;
     font-size: 0.7rem;
 }
-.comment-container button:hover{
+.comment-wrap .comment-container button:hover{
     color:rgb(120, 120, 222);
 }
 
-.comment-container input{
+.comment-wrap .comment-container input{
   padding: 10px;
   border: 1px solid #dfdbe3;
   width: 100%;
@@ -51,6 +54,15 @@ margin-left: 75px;
   margin: 10px 10px 0 0;
 }
 
-.comment-container input:focus{
+.comment-wrap .comment-container input:focus{
     outline: none;
 }
+.comment-wrap .replies{
+    padding-left: 50px;
+}
+@media screen and (max-width: 600px) {
+    .comment-wrap .replies {
+      padding-left: 25px;
+    }
+  }
+  

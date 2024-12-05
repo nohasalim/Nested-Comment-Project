@@ -60,7 +60,7 @@ function Comments({ comment, handleAddComment, handleCommentDelete }) {
           </div>
         ) : null}
       </div>
-      <div className="replies" style={{ paddingLeft: 75}}>
+      <div className="replies" >
         {comment.replies &&
           comment.replies.length > 0 &&
           comment.replies.map((ele) => (
