@@ -5,7 +5,7 @@ import { useState } from "react";
 import useFunctions from "./useFunctions";
 
 function App() {
-  const { addComment, deleteComment, addNewComment,timeSince } = useFunctions();
+  const { addComment, deleteComment, addNewComment } = useFunctions();
   const [comments, setComments] = useState(commentData);
   const [commentAdd, setCommentAdd] = useState("");
 

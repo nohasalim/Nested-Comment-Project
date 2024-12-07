@@ -27,7 +27,7 @@ function useFunctions() {
 
   // Add new comment
   const addNewComment = (tree, newComment) => {
-    return [newComment, ...tree];
+    return [...tree,newComment];
   };
 
   // Delete main comment or a reply to a comment
