@@ -1,43 +1,48 @@
 import { useState } from "react";
 import useFunctions from "../useFunctions";
-
 import "./Comments.css";
 
 function Comments({ comment, handleAddComment, handleCommentDelete }) {
+  // State to control the visibility of the input field for replies
   const [showInput, setShowInput] = useState(false);
-  const {timeSince } = useFunctions();
+  const { timeSince } = useFunctions();
 
+  // State to manage the reply text
   const [commentReply, setCommentReply] = useState("");
-  const [like, setlike] = useState(0);
+  // State to manage the number of likes
+  const [like, setLike] = useState(0);
 
-  function handlelike() {
-    setlike(like + 1);
+  // Function to handle the like button click
+  function handleLike() {
+    setLike(like + 1);
   }
 
-  function handleOnchange(e) {
+  // Function to handle changes in the reply input field
+  function handleOnChange(e) {
     setCommentReply(e.target.value);
   }
+
+  // Function to handle adding a new reply
   function handleAdd() {
-    //console.log("new reply :",commentReply);
     let newComment = {
       id: Date.now(),
       image: comment.image,
       username: comment.username,
       text: commentReply,
-      timestamp: new Date().toISOString() ,// Store the current timestamp
+      timestamp: new Date().toISOString(), // Store the current timestamp
       replies: [],
     };
     handleAddComment(comment.id, newComment);
     setCommentReply("");
     setShowInput(false);
   }
-  return (
 
+  return (
     <div className="comment-wrap">
       <div className={`${comment.text && "comment-container"}`}>
         <fieldset className="comment-data">
           <legend>
-            <img className="user-image" src={comment.image} />
+            <img className="user-image" src={comment.image} alt={`${comment.username}'s avatar`} />
             <div className="text-content">
               <h5>{comment.username}</h5>
               <h6>{comment.text}</h6>
@@ -50,18 +55,20 @@ function Comments({ comment, handleAddComment, handleCommentDelete }) {
             type="text"
             autoFocus
             value={commentReply}
-            onChange={handleOnchange}
+            onChange={handleOnChange}
           />
         )}
         {showInput ? (
           <div className="user_actions">
-            <button onClick={handleAdd}>Add</button>
+            <button onClick={handleAdd} disabled={!commentReply.trim()}>
+              Add
+            </button>
             <button onClick={() => setShowInput(false)}>Cancel</button>
           </div>
         ) : comment.text ? (
           <div className="user_actions">
             <button>{timeSince(comment.timestamp)}</button> {/* Display the time elapsed */}
-            <button onClick={handlelike}>{like} like</button>
+            <button onClick={handleLike}>{like} like</button>
             <button onClick={() => setShowInput(true)}>Reply</button>
             <button onClick={() => handleCommentDelete(comment.id)}>
               Delete
@@ -82,7 +89,6 @@ function Comments({ comment, handleAddComment, handleCommentDelete }) {
           ))}
       </div>
     </div>
-    
   );
 }
 

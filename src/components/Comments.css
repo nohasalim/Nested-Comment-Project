@@ -1,81 +1,97 @@
-
-.comment-wrap{
-    margin-left:10px;
-
-}
-.comment-wrap .comment-container{
-    padding: 10px;
-    background-color:white;
+/* Container for the entire comment section */
+.comment-wrap {
+    margin: 10px;
 }
 
-.comment-wrap .comment-container .comment-data{
+/* Container for individual comments */
+.comment-wrap .comment-container {
+    background-color: white;
+}
+
+/* Flexbox layout for comment data */
+.comment-wrap .comment-container .comment-data {
     display: flex;
     align-items: center;
 }
 
-
-.comment-wrap .comment-container .comment-data .text-content{
+/* Styling for the text content of comments */
+.comment-wrap .comment-container .comment-data .text-content {
     background-color: #F1F3FD;
     border-radius: 10px;
-   font-weight: 500;
-   font-size: 1.1rem;
-   padding: 10px;
-
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 10px;
 }
-fieldset{
+
+/* Remove default border from fieldset */
+fieldset {
     border: none;
-    
 }
-legend{
-    display:flex;
-    align-items:flex-start;
-    flex-direction: row;
 
+/* Flexbox layout for legend */
+legend {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
 }
-.comment-wrap .comment-container .comment-data .user-image{
-    width:40px;
+
+/* Styling for user images */
+.comment-wrap .comment-container .comment-data .user-image {
+    width: 40px;
     margin-right: 10px;
 }
-.comment-wrap .comment-container .user_actions{
-margin-left:40px;   
+
+/* Margin for user actions */
+.comment-wrap .comment-container .user_actions {
+    margin-left: 40px;
 }
-h5,h6{
-    font-weight:500;
+
+/* Styling for headings */
+h5, h6 {
+    font-weight: 400;
     margin: 0;
-    padding:2px;
 }
-.comment-wrap .comment-container button{
-    background-color:white;
+
+/* Styling for buttons */
+.comment-wrap .comment-container button {
+    background-color: white;
     color: hsl(0, 1%, 48%);
-    border:none;
+    border: none;
     font-weight: 600;
     padding: 5px;
-    margin: 5px 0 ;
+    margin: 5px 0;
     cursor: pointer;
-    text-transform:capitalize;
+    text-transform: capitalize;
     letter-spacing: 1px;
     font-size: 0.7rem;
 }
-.comment-wrap .comment-container button:hover{
-    color:blue
+
+/* Hover effect for buttons */
+.comment-wrap .comment-container button:hover {
+    color: blue;
 }
 
-.comment-wrap .comment-container input{
-  padding: 10px;
-  border: 1px solid #dfdbe3;
-  border-radius: 10px;
-  margin: 10px 10px 0 0;
+/* Styling for input fields */
+.comment-wrap .comment-container input {
+    padding: 10px;
+    border: 1px solid #dfdbe3;
+    border-radius: 10px;
+    margin: 10px 10px 0 0;
 }
 
-.comment-wrap .comment-container input:focus{
+/* Remove outline on input focus */
+.comment-wrap .comment-container input:focus {
     outline: none;
 }
-.comment-wrap .replies{
+
+/* Padding for replies */
+.comment-wrap .replies {
     padding-left: 50px;
 }
+
+/* Responsive design for smaller screens */
 @media screen and (max-width: 600px) {
     .comment-wrap .replies {
-      padding-left: 25px;
+        padding-left: 25px;
     }
-  }
-  
+}

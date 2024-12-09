@@ -9,6 +9,7 @@ function App() {
   const [comments, setComments] = useState(commentData);
   const [commentAdd, setCommentAdd] = useState("");
 
+  // Function to handle adding a reply to an existing comment
   const handleAddComment = (commentId, newComment) => {
     const updatedTree = comments.map((comment) =>
       addComment(comment, commentId, newComment)
@@ -16,10 +17,12 @@ function App() {
     setComments(updatedTree);
   };
 
+  // Function to handle changes in the new comment input field
   const handleOnChange = (e) => {
     setCommentAdd(e.target.value);
   };
 
+  // Function to handle adding a new comment
   const handleAddNewComment = () => {
     const newComment = {
       id: Date.now().toString(),
@@ -27,13 +30,14 @@ function App() {
       username: "amyrobson",
       text: commentAdd,
       replies: [],
-      timestamp: new Date().toISOString() // Store the current timestamp
+      timestamp: new Date().toISOString(), // Store the current timestamp
     };
     const updatedTree = addNewComment(comments, newComment);
     setComments(updatedTree);
     setCommentAdd(""); // Clear the input field after adding the comment
   };
 
+  // Function to handle deleting a comment
   const handleCommentDelete = (commentId) => {
     const updatedTree = comments
       .map((comment) => deleteComment(comment, commentId))
@@ -43,7 +47,6 @@ function App() {
 
   return (
     <div className="App">
-      
       {comments.map((comment) => (
         <Comments
           key={comment.id}
@@ -57,11 +60,13 @@ function App() {
         <input
           type="text"
           placeholder=" Add A Public Comment ..."
-           autoFocus
+          autoFocus
           value={commentAdd}
           onChange={handleOnChange}
         />
-        <button onClick={handleAddNewComment}>Comment</button>
+        <button onClick={handleAddNewComment} disabled={!commentAdd.trim()}>
+          Comment
+        </button>
       </div>
     </div>
   );
