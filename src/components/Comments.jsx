@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import useFunctions from "../useFunctions";
 import "./Comments.css";
 
@@ -42,7 +43,11 @@ function Comments({ comment, handleAddComment, handleCommentDelete }) {
       <div className={`${comment.text && "comment-container"}`}>
         <fieldset className="comment-data">
           <legend>
-            <img className="user-image" src={comment.image} alt={`${comment.username}'s avatar`} />
+            <img
+              className="user-image"
+              src={comment.image}
+              alt={`${comment.username}'s avatar`}
+            />
             <div className="text-content">
               <h5>{comment.username}</h5>
               <h6>{comment.text}</h6>
@@ -67,7 +72,8 @@ function Comments({ comment, handleAddComment, handleCommentDelete }) {
           </div>
         ) : comment.text ? (
           <div className="user_actions">
-            <button>{timeSince(comment.timestamp)}</button> {/* Display the time elapsed */}
+            <button>{timeSince(comment.timestamp)}</button>{" "}
+            {/* Display the time elapsed */}
             <button onClick={handleLike}>{like} like</button>
             <button onClick={() => setShowInput(true)}>Reply</button>
             <button onClick={() => handleCommentDelete(comment.id)}>
@@ -91,5 +97,16 @@ function Comments({ comment, handleAddComment, handleCommentDelete }) {
     </div>
   );
 }
-
+Comments.propTypes = {
+  comment: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    image: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    timestamp: PropTypes.string.isRequired,
+    replies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }).isRequired,
+  handleAddComment: PropTypes.func.isRequired,
+  handleCommentDelete: PropTypes.func.isRequired,
+};
 export default Comments;
