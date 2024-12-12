@@ -58,6 +58,7 @@ function Comments({ comment, handleAddComment, handleCommentDelete }) {
         {showInput && (
           <input
             type="text"
+            placeholder="Add A Reply..."
             autoFocus
             value={commentReply}
             onChange={handleOnChange}
@@ -74,10 +75,23 @@ function Comments({ comment, handleAddComment, handleCommentDelete }) {
           <div className="user_actions">
             <button>{timeSince(comment.timestamp)}</button>{" "}
             {/* Display the time elapsed */}
-            <button onClick={handleLike}>{like} like</button>
+            <button onClick={handleLike}>
+              <span id="like-count"> like </span>
+            </button>
             <button onClick={() => setShowInput(true)}>Reply</button>
             <button onClick={() => handleCommentDelete(comment.id)}>
               Delete
+            </button>
+            <button>
+              <span
+                style={{
+                  color: "blue",
+                  display: like > 0 ? "inline" : "none",
+                }}
+              >
+                {like}
+                <i className="fas fa-thumbs-up"></i>
+              </span>
             </button>
           </div>
         ) : null}
