@@ -65,7 +65,7 @@ function App() {
           onChange={handleOnChange}
         />
         <button onClick={handleAddNewComment} disabled={!commentAdd.trim()}>
-          Comment
+          <i className="fas fa-paper-plane"></i>
         </button>
       </div>
     </div>

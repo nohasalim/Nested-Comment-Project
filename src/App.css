@@ -31,25 +31,20 @@ body {
 .App .add-comment input {
     padding: 10px;
     border: 1px solid #dfdbe3;
-    width: 600px;
-    max-width: 800px;
+    width: 70%;
+    max-width: 500px;
     border-radius: 10px;
     margin: 10px;
 }
 
 /* Styling for the button in the add-comment section */
 .App .add-comment button {
-    background-color: #F1F3FD;
+    background-color:transparent;
     color: hsl(0, 1%, 48%);
     border: none;
-    border-radius: 10px;
-    font-weight: 600;
     padding: 10px;
-    margin: 5px 0;
     cursor: pointer;
-    text-transform: capitalize;
-    letter-spacing: 2px;
-    font-size: 0.7rem;
+    
 }
 
 /* Hover effect for the button */
